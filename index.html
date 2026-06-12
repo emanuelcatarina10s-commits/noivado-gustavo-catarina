@@ -1,143 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nosso Momento 💍</title>
+<title>Nosso Casamento ❤️</title>
 
 <style>
 
-body {
+*{
+    box-sizing:border-box;
+}
+
+body{
     margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#fff0f5,#ffffff);
+    font-family:'Georgia',serif;
+    background:#faf7f2;
     color:#333;
-    text-align:center;
 }
 
 
-/* TOPO */
+/* CAPA */
 
-header {
-    padding:60px 20px;
-    background:#111;
-    color:white;
+.hero{
+
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.45)),
+url("COLOCA_AQUI_FOTO_DE_CAPA");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+
 }
 
-header h1 {
-    font-size:45px;
-    margin:0;
+
+.hero h1{
+
+font-size:70px;
+letter-spacing:3px;
+
 }
 
-header p {
-    font-size:20px;
+
+.hero p{
+
+font-size:25px;
+
 }
 
 
-/* BOTÕES */
 
-.buttons {
-    margin:30px;
+.btn{
+
+display:inline-block;
+margin-top:25px;
+padding:15px 35px;
+border-radius:40px;
+background:white;
+color:#333;
+text-decoration:none;
+transition:.3s;
+
 }
 
-button {
-    padding:15px 25px;
-    margin:10px;
-    border:none;
-    border-radius:30px;
-    background:#d63384;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
+
+.btn:hover{
+
+transform:scale(1.08);
+
 }
 
-button:hover {
-    transform:scale(1.05);
+
+
+/* INTRO */
+
+.section{
+
+padding:80px 8%;
+text-align:center;
+
 }
+
+
+.section h2{
+
+font-size:45px;
+font-weight:normal;
+
+}
+
 
 
 /* GALERIA */
 
-.gallery {
+.gallery{
 
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    padding:30px;
-
-}
-
-
-.gallery img {
-
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    border-radius:20px;
-    cursor:pointer;
-    transition:.3s;
+columns:3 300px;
+column-gap:20px;
+padding:40px;
 
 }
 
 
-.gallery img:hover {
+.gallery img{
 
-    transform:scale(1.05);
+width:100%;
+margin-bottom:20px;
+border-radius:20px;
+cursor:pointer;
+transition:.4s;
+
+}
+
+
+.gallery img:hover{
+
+transform:scale(1.03);
+box-shadow:0 20px 40px rgba(0,0,0,.2);
 
 }
 
 
 
-/* IMAGEM GRANDE */
+/* LIGHTBOX */
 
-.lightbox {
+.lightbox{
 
 display:none;
 position:fixed;
+z-index:999;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.9);
-justify-content:center;
+
+background:rgba(0,0,0,.92);
+
 align-items:center;
-z-index:99;
+justify-content:center;
 
 }
 
 
-.lightbox img {
+.lightbox img{
 
 max-width:90%;
-max-height:90%;
+max-height:85%;
 border-radius:20px;
 
 }
 
 
-.close {
+.fechar{
 
 position:absolute;
-top:20px;
-right:30px;
-font-size:40px;
+top:30px;
+right:40px;
+font-size:50px;
 color:white;
 cursor:pointer;
 
 }
 
 
-/* RODAPE */
 
-footer {
+/* MUSICA */
 
-padding:30px;
-background:#111;
-color:white;
+
+.music{
+
+margin:40px auto;
+text-align:center;
 
 }
 
+
+footer{
+
+background:#222;
+color:white;
+padding:40px;
+text-align:center;
+
+}
+
+
+@media(max-width:700px){
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+}
 
 </style>
 
@@ -147,59 +211,75 @@ color:white;
 <body>
 
 
-<header>
 
-<h1>💍 Nosso Momento</h1>
-
-<p>Uma história feita de amor, respeito e memórias</p>
-
-</header>
+<section class="hero">
 
 
+<div>
 
-<div class="buttons">
+<h1>Emanuel ❤️ Catarina</h1>
 
-<button onclick="document.getElementById('music').play()">
-▶ Tocar Música
-</button>
+<p>Uma história para recordar</p>
 
 
-<button onclick="document.getElementById('gallery').scrollIntoView()">
-📸 Ver Fotos
-</button>
+<a class="btn" href="#galeria">
+
+Ver Momentos
+
+</a>
 
 
 </div>
 
 
+</section>
 
-<audio id="music" controls>
 
-<!-- COLOCA AQUI O LINK DA TUA MÚSICA -->
 
-<source src="COLOQUE_AQUI_A_MUSICA.mp3">
+
+<section class="section">
+
+
+<h2>O Nosso Álbum</h2>
+
+<p>
+Cada fotografia guarda um momento especial.
+</p>
+
+
+</section>
+
+
+
+<div class="music">
+
+
+<audio controls autoplay loop>
+
+<source src="COLOCA_AQUI_A_MUSICA.mp3">
 
 </audio>
 
 
-
-<h2>📸 Nossa Galeria</h2>
-
-
-<div class="gallery" id="gallery">
+</div>
 
 
-<!-- COLOCA AS TUAS FOTOS AQUI -->
 
 
-<img src="LINK_DA_FOTO_1" onclick="openImage(this.src)">
+<div class="gallery" id="galeria">
 
-<img src="LINK_DA_FOTO_2" onclick="openImage(this.src)">
 
-<img src="LINK_DA_FOTO_3" onclick="openImage(this.src)">
+<img src="LINK_FOTO_1" onclick="abrir(this.src)">
 
-<img src="LINK_DA_FOTO_4" onclick="openImage(this.src)">
+<img src="LINK_FOTO_2" onclick="abrir(this.src)">
 
+<img src="LINK_FOTO_3" onclick="abrir(this.src)">
+
+<img src="LINK_FOTO_4" onclick="abrir(this.src)">
+
+<img src="LINK_FOTO_5" onclick="abrir(this.src)">
+
+<img src="LINK_FOTO_6" onclick="abrir(this.src)">
 
 
 </div>
@@ -207,48 +287,46 @@ color:white;
 
 
 
-<!-- FOTO GRANDE -->
-
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="box">
 
 
-<span class="close" onclick="closeImage()">×</span>
+<div class="fechar" onclick="fechar()">×</div>
 
-
-<img id="bigImage">
+<img id="imagemGrande">
 
 
 </div>
-
 
 
 
 <footer>
 
-<p>Feito com ❤️</p>
+Feito com ❤️ para guardar memórias
 
 </footer>
+
 
 
 
 <script>
 
 
-function openImage(src){
+function abrir(src){
 
-document.getElementById("bigImage").src=src;
+document.getElementById("imagemGrande").src=src;
 
-document.getElementById("lightbox").style.display="flex";
+document.getElementById("box").style.display="flex";
+
+}
+
+
+
+function fechar(){
+
+document.getElementById("box").style.display="none";
 
 }
 
-
-
-function closeImage(){
-
-document.getElementById("lightbox").style.display="none";
-
-}
 
 
 </script>
