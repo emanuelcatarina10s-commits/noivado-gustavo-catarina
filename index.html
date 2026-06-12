@@ -1,183 +1,260 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Noivado Gustavo & Catarina</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Nosso Momento 💍</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #fdfdfd);
-      color: #333;
-      text-align: center;
-    }
+<style>
 
-    header {
-      padding: 80px 20px;
-      background: url('https://images.unsplash.com/photo-1523438097201-512ae7d59c1a?auto=format&fit=crop&w=1200&q=80') center/cover;
-      color: white;
-      position: relative;
-    }
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#fff0f5,#ffffff);
+    color:#333;
+    text-align:center;
+}
 
-    header::after {
-      content: "";
-      position: absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,0,0.4);
-    }
 
-    header h1 {
-      position: relative;
-      font-family: 'Great Vibes', cursive;
-      font-size: 60px;
-      margin: 0;
-    }
+/* TOPO */
 
-    header p {
-      position: relative;
-      font-size: 18px;
-      margin-top: 10px;
-    }
+header {
+    padding:60px 20px;
+    background:#111;
+    color:white;
+}
 
-    .container {
-      padding: 50px 20px;
-    }
+header h1 {
+    font-size:45px;
+    margin:0;
+}
 
-    .card {
-      background: white;
-      max-width: 800px;
-      margin: auto;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+header p {
+    font-size:20px;
+}
 
-    h2 {
-      color: #c2185b;
-      margin-top: 40px;
-    }
 
-    .countdown {
-      font-size: 28px;
-      margin-top: 20px;
-      font-weight: bold;
-      color: #444;
-    }
+/* BOTÕES */
 
-    /* 💍 GALERIA */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
+.buttons {
+    margin:30px;
+}
 
-    .gallery img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 15px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
+button {
+    padding:15px 25px;
+    margin:10px;
+    border:none;
+    border-radius:30px;
+    background:#d63384;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
 
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
+button:hover {
+    transform:scale(1.05);
+}
 
-    footer {
-      margin-top: 50px;
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
-    }
 
-    .heart {
-      color: #e91e63;
-      animation: pulse 1.5s infinite;
-    }
+/* GALERIA */
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-  </style>
+.gallery {
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    padding:30px;
+
+}
+
+
+.gallery img {
+
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+
+.gallery img:hover {
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* IMAGEM GRANDE */
+
+.lightbox {
+
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+z-index:99;
+
+}
+
+
+.lightbox img {
+
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+
+}
+
+
+.close {
+
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+color:white;
+cursor:pointer;
+
+}
+
+
+/* RODAPE */
+
+footer {
+
+padding:30px;
+background:#111;
+color:white;
+
+}
+
+
+</style>
+
 </head>
+
 
 <body>
 
+
 <header>
-  <h1>Gustavo <span class="heart">❤</span> Catarina</h1>
-  <p>Um amor que se tornou promessa 💍</p>
+
+<h1>💍 Nosso Momento</h1>
+
+<p>Uma história feita de amor, respeito e memórias</p>
+
 </header>
 
-<div class="container">
-  <div class="card">
 
-    <h2>💍 O Nosso Noivado</h2>
-    <p>Bem-vindos ao nosso momento especial. Este site celebra o nosso amor.</p>
 
-    <h2>📅 Data do Evento</h2>
-    <p><strong>Em breve</strong></p>
+<div class="buttons">
 
-    <h2>⏳ Contagem Regressiva</h2>
-    <div class="countdown" id="countdown">Carregando...</div>
+<button onclick="document.getElementById('music').play()">
+▶ Tocar Música
+</button>
 
-    <!-- 💕 GALERIA -->
-    <h2>📸 Nossa Galeria</h2>
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=800&q=80" />
-      c
-<img src="ChatGPT Image May 29, 2026, 03_39_04 AM.png" />
-       <img src="ChatGPT Image May 29, 2026, 03_39_04 AM.png" />
-      <img src="WhatsApp Image 2026-04-17 at 08.51.59.jpeg" />
-      <img src="WhatsApp Image 2026-04-17 at 08.51.59.jpeg" />
-      <img src="WhatsApp Image 2026-04-17 at 08.51.59.jpeg" />
-      <img src="WhatsApp Image 2026-04-17 at 08.51.59.jpeg" />
-      <img src="WhatsApp Image 2026-04-27 at 00.05.48.jpeg" />
 
-    </div>
+<button onclick="document.getElementById('gallery').scrollIntoView()">
+📸 Ver Fotos
+</button>
 
-  </div>
+
 </div>
 
-<footer>
-  Feito com ❤ para Gustavo & Catarina
-</footer>
 
-<script>
-  const eventDate = new Date("2026-12-31").getTime();
 
-  const x = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
+<audio id="music" controls>
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+<!-- COLOCA AQUI O LINK DA TUA MÚSICA -->
 
-    document.getElementById("countdown").innerHTML =
-      days + " dias restantes";
+<source src="COLOQUE_AQUI_A_MUSICA.mp3">
 
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("countdown").innerHTML = "É HOJE 💍";
-    }
-  }, 1000);
-</script>
-
-</body>
-  <!-- 🎵 Música romântica -->
-<audio id="musica" loop>
-  <source src="musica/noivado.mp3" type="audio/mpeg">
 </audio>
 
-<button id="playMusic">
-  🎶 Tocar música
-</button>
+
+
+<h2>📸 Nossa Galeria</h2>
+
+
+<div class="gallery" id="gallery">
+
+
+<!-- COLOCA AS TUAS FOTOS AQUI -->
+
+
+<img src="LINK_DA_FOTO_1" onclick="openImage(this.src)">
+
+<img src="LINK_DA_FOTO_2" onclick="openImage(this.src)">
+
+<img src="LINK_DA_FOTO_3" onclick="openImage(this.src)">
+
+<img src="LINK_DA_FOTO_4" onclick="openImage(this.src)">
+
+
+
+</div>
+
+
+
+
+<!-- FOTO GRANDE -->
+
+<div class="lightbox" id="lightbox">
+
+
+<span class="close" onclick="closeImage()">×</span>
+
+
+<img id="bigImage">
+
+
+</div>
+
+
+
+
+<footer>
+
+<p>Feito com ❤️</p>
+
+</footer>
+
+
+
+<script>
+
+
+function openImage(src){
+
+document.getElementById("bigImage").src=src;
+
+document.getElementById("lightbox").style.display="flex";
+
+}
+
+
+
+function closeImage(){
+
+document.getElementById("lightbox").style.display="none";
+
+}
+
+
+</script>
+
+
+
+</body>
+
 </html>
