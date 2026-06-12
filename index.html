@@ -1,16 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Noivado Gustavo & Catarina</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #fdfdfd);
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      padding: 80px 20px;
+      background: url('https://images.unsplash.com/photo-1523438097201-512ae7d59c1a?auto=format&fit=crop&w=1200&q=80') center/cover;
+      color: white;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      position: relative;
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      margin: 0;
+    }
+
+    header p {
+      position: relative;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .container {
+      padding: 50px 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #c2185b;
+    }
+
+    .countdown {
+      font-size: 28px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .heart {
+      color: #e91e63;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
 </head>
-<body style="text-align:center; font-family: Arial; background:#f8f8f8;">
 
-  <h1>💍 Noivado Gustavo & Catarina 💍</h1>
-  <p>Bem-vindos ao nosso site especial</p>
+<body>
 
-  <h2>Data do Evento</h2>
-  <p>Em breve</p>
+<header>
+  <h1>Gustavo <span class="heart">❤</span> Catarina</h1>
+  <p>Um amor que se tornou promessa 💍</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>💍 O Nosso Noivado</h2>
+    <p>Bem-vindos ao nosso momento especial. Este site foi criado para celebrar o nosso amor e a nossa união.</p>
+
+    <h2>📅 Data do Evento</h2>
+    <p><strong>Em breve</strong></p>
+
+    <h2>⏳ Contagem Regressiva</h2>
+    <div class="countdown" id="countdown">Carregando...</div>
+  </div>
+</div>
+
+<footer>
+  Feito com ❤ para Gustavo & Catarina
+</footer>
+
+<script>
+  // muda aqui a data quando quiseres
+  const eventDate = new Date("2026-12-31").getTime();
+
+  const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    document.getElementById("countdown").innerHTML =
+      days + " dias restantes";
+
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown").innerHTML = "É HOJE 💍";
+    }
+  }, 1000);
+</script>
 
 </body>
 </html>
