@@ -9,33 +9,46 @@
 
 <style>
 
+
 *{
 box-sizing:border-box;
 }
 
+
 body{
+
 margin:0;
 font-family:Georgia,serif;
 background:#fff8f3;
-color:#333;
 overflow-x:hidden;
+color:#333;
+
 }
 
 
-/* BRILHOS */
 
-.sparkle{
+/* PARTICULAS */
+
+.spark{
+
 position:fixed;
-width:5px;
-height:5px;
-background:white;
+width:8px;
+height:8px;
+background:#fff;
 border-radius:50%;
-box-shadow:0 0 20px gold;
-animation: brilho 5s infinite;
-z-index:3;
+box-shadow:
+0 0 15px #ffd700,
+0 0 30px #fff;
+
+animation: cair 6s infinite;
+
+z-index:5;
+
 }
 
-@keyframes brilho{
+
+
+@keyframes cair{
 
 0%{
 transform:translateY(-20px);
@@ -54,14 +67,16 @@ opacity:0;
 }
 
 
+
 /* CAPA */
+
 
 .hero{
 
 height:100vh;
 
 background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.55)),
+linear-gradient(#0005,#0008),
 url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1500");
 
 background-size:cover;
@@ -70,41 +85,37 @@ background-position:center;
 display:flex;
 align-items:center;
 justify-content:center;
-text-align:center;
 
+text-align:center;
 color:white;
+
 
 }
 
 
 .hero h1{
 
-font-size:65px;
+font-size:70px;
+
+text-shadow:
+0 0 20px gold;
 
 }
 
 
 .anel{
 
-font-size:60px;
+font-size:70px;
 
 }
 
-
-.hero p{
-
-font-size:25px;
-
-}
 
 
 .botao{
 
-display:inline-block;
-margin-top:25px;
 padding:15px 40px;
-border-radius:50px;
-background:white;
+border-radius:40px;
+background:#fff;
 color:#333;
 text-decoration:none;
 
@@ -112,55 +123,57 @@ text-decoration:none;
 
 
 
-/* BOTÃO MUSICA */
+/* CONTADOR */
 
-.musicBtn{
 
-position:fixed;
-bottom:20px;
-right:20px;
-z-index:20;
+.contador{
 
-background:#d4af37;
-color:white;
+padding:30px;
+background:#fff;
 
-padding:15px 20px;
-border-radius:50px;
-
-cursor:pointer;
-
-box-shadow:0 5px 20px #999;
+font-size:25px;
 
 }
 
 
 
-
-section{
-
-padding:70px 8%;
-text-align:center;
-
-}
-
-
-h2{
+.numero{
 
 font-size:45px;
+color:#c9a227;
 
 }
+
+
+
+/* QR VISITA */
+
+
+.visitante{
+
+background:white;
+padding:30px;
+margin:30px;
+border-radius:25px;
+box-shadow:0 10px 30px #ddd;
+
+}
+
+
 
 
 
 /* GALERIA */
 
+
 .gallery{
 
-columns:3 260px;
+columns:3 250px;
+padding:40px;
 gap:20px;
-padding:30px;
 
 }
+
 
 
 .card{
@@ -187,7 +200,7 @@ transition:.5s;
 .card img:hover{
 
 transform:scale(1.06);
-box-shadow:0 20px 40px rgba(200,150,20,.5);
+box-shadow:0 0 40px gold;
 
 }
 
@@ -198,14 +211,34 @@ box-shadow:0 20px 40px rgba(200,150,20,.5);
 background:white;
 padding:15px;
 border-radius:15px;
-margin-top:10px;
 
 }
 
 
 
 
-/* FOTO GRANDE */
+
+/* MUSICA */
+
+
+.music{
+
+position:fixed;
+bottom:20px;
+right:20px;
+z-index:20;
+
+background:#c9a227;
+color:white;
+padding:15px 25px;
+border-radius:50px;
+cursor:pointer;
+
+}
+
+
+
+/* LIGHTBOX */
 
 
 .lightbox{
@@ -213,14 +246,13 @@ margin-top:10px;
 display:none;
 
 position:fixed;
-
 top:0;
 left:0;
 
 width:100%;
 height:100%;
 
-background:rgba(0,0,0,.92);
+background:#000e;
 
 align-items:center;
 justify-content:center;
@@ -230,10 +262,12 @@ z-index:100;
 }
 
 
+
 .lightbox img{
 
 max-width:90%;
 max-height:90%;
+
 border-radius:20px;
 
 }
@@ -243,15 +277,13 @@ border-radius:20px;
 .fechar{
 
 position:absolute;
-top:20px;
 right:30px;
-
+top:20px;
 font-size:50px;
 color:white;
 
-cursor:pointer;
-
 }
+
 
 
 
@@ -281,8 +313,8 @@ text-align:center;
 
 </style>
 
-
 </head>
+
 
 
 <body>
@@ -298,13 +330,11 @@ text-align:center;
 </audio>
 
 
-
-<div class="musicBtn" onclick="tocarMusica()">
+<div class="music" onclick="playMusic()">
 
 🎵 Música
 
 </div>
-
 
 
 
@@ -334,28 +364,89 @@ Nosso Noivado ❤️
 </p>
 
 
-<h3>
+</div>
 
-Convidado Nº 001
+</div>
 
-<br>
 
-Bem-vindo ao nosso momento especial
+
+
+
+
+<!-- QR DINAMICO -->
+
+
+<div class="visitante">
+
+
+<h2>
+
+💌 Bem-vindo
+
+</h2>
+
+
+<h3 id="guest">
+
+A carregar convite...
 
 </h3>
 
 
-<a href="#galeria" class="botao">
 
-Ver Momentos
+<p>
 
-</a>
+Este convite já foi visitado:
+
+</p>
+
+
+<div class="numero" id="visitas">
+
+0
+
+</div>
+
+
+<p>
+
+vezes
+
+</p>
 
 
 </div>
 
 
+
+
+
+
+
+
+<!-- CONTADOR -->
+
+
+<div class="contador">
+
+
+<h2>
+
+⏳ Contagem regressiva
+
+</h2>
+
+
+<div id="contador">
+
+A calcular...
+
 </div>
+
+
+</div>
+
+
 
 
 
@@ -364,32 +455,6 @@ Ver Momentos
 
 
 <section>
-
-
-<h2>
-
-Nossa História ❤️
-
-</h2>
-
-
-<p>
-
-Um amor, uma promessa e uma nova caminhada.
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section id="galeria">
 
 
 <h2>
@@ -407,11 +472,13 @@ Momentos Especiais 📸
 <div class="card">
 
 <img onclick="abrir(this.src)"
+
 src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900">
 
+
 <div class="legenda">
 
-O início de uma linda história ✨
+O começo da nossa história ❤️
 
 </div>
 
@@ -424,11 +491,13 @@ O início de uma linda história ✨
 <div class="card">
 
 <img onclick="abrir(this.src)"
+
 src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900">
 
+
 <div class="legenda">
 
-Um momento para guardar no coração ❤️
+Um momento inesquecível ✨
 
 </div>
 
@@ -441,28 +510,13 @@ Um momento para guardar no coração ❤️
 <div class="card">
 
 <img onclick="abrir(this.src)"
+
 src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=900">
 
-<div class="legenda">
-
-Duas vidas, um só caminho 💍
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<img onclick="abrir(this.src)"
-src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=900">
 
 <div class="legenda">
 
-Que este amor seja eterno ✨
+Amor para sempre 💍
 
 </div>
 
@@ -481,21 +535,16 @@ Que este amor seja eterno ✨
 
 
 
+
+
 <section>
 
 
 <h2>
 
-Local do Noivado 📍
+Local 📍
 
 </h2>
-
-
-<p>
-
-Kianami - Salão p/ Festas e Outros Eventos
-
-</p>
 
 
 
@@ -514,8 +563,9 @@ src="https://www.google.com/maps?q=Kianami+Sal%C3%A3o+p%2F+Festas+e+Outros+Event
 
 
 
-<div class="lightbox" id="box">
 
+
+<div class="lightbox" id="box">
 
 <div class="fechar" onclick="fechar()">
 
@@ -524,7 +574,7 @@ src="https://www.google.com/maps?q=Kianami+Sal%C3%A3o+p%2F+Festas+e+Outros+Event
 </div>
 
 
-<img id="imagemGrande">
+<img id="fotoGrande">
 
 
 </div>
@@ -538,12 +588,11 @@ src="https://www.google.com/maps?q=Kianami+Sal%C3%A3o+p%2F+Festas+e+Outros+Event
 
 Gustavo ❤️ Catarina
 
-<br><br>
+<br>
 
-Obrigado por fazer parte deste momento
+O nosso dia especial
 
 </footer>
-
 
 
 
@@ -554,23 +603,107 @@ Obrigado por fazer parte deste momento
 
 
 
-function tocarMusica(){
+// QR DINAMICO
 
-let m=document.getElementById("musica");
 
-m.play();
+let url=new URLSearchParams(window.location.search);
+
+
+let convidado=url.get("convidado");
+
+
+if(convidado){
+
+document.getElementById("guest").innerHTML=
+
+"Convidado Nº "+convidado+
+"<br>Seja bem-vindo ao nosso noivado ❤️";
+
 
 }
+
+else{
+
+
+document.getElementById("guest").innerHTML=
+
+"Convidado especial ❤️";
+
+}
+
+
+
+
+
+let visitas=
+localStorage.getItem("visitas") || 0;
+
+
+visitas++;
+
+
+localStorage.setItem("visitas",visitas);
+
+
+document.getElementById("visitas").innerHTML=visitas;
+
+
+
+
+
+
+// DATA DO EVENTO
+
+let evento=new Date("December 20, 2026 18:00:00").getTime();
+
+
+
+setInterval(function(){
+
+
+let agora=new Date().getTime();
+
+
+let falta=evento-agora;
+
+
+
+let dias=Math.floor(falta/(1000*60*60*24));
+
+
+
+document.getElementById("contador").innerHTML=
+
+dias+" dias para o nosso momento 💍";
+
+
+
+},1000);
+
+
+
+
+
+
+function playMusic(){
+
+document.getElementById("musica").play();
+
+}
+
+
+
 
 
 
 function abrir(src){
 
-document.getElementById("imagemGrande").src=src;
+document.getElementById("fotoGrande").src=src;
 
 document.getElementById("box").style.display="flex";
 
 }
+
 
 
 
@@ -584,11 +717,11 @@ document.getElementById("box").style.display="none";
 
 
 
-for(let i=0;i<40;i++){
+for(let i=0;i<60;i++){
 
 let s=document.createElement("div");
 
-s.className="sparkle";
+s.className="spark";
 
 s.style.left=Math.random()*100+"%";
 
@@ -600,19 +733,7 @@ document.body.appendChild(s);
 
 
 
-
-
-window.onload=function(){
-
-document.getElementById("musica").play()
-.catch(()=>{});
-
-}
-
-
-
 </script>
-
 
 
 </body>
