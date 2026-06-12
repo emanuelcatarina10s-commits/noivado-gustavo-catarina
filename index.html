@@ -7,13 +7,11 @@
 
 <title>Gustavo 💍 Catarina</title>
 
-
 <style>
 
 *{
 box-sizing:border-box;
 }
-
 
 body{
 margin:0;
@@ -28,19 +26,19 @@ overflow-x:hidden;
 
 .sparkle{
 position:fixed;
-width:6px;
-height:6px;
+width:5px;
+height:5px;
 background:white;
 border-radius:50%;
 box-shadow:0 0 20px gold;
-animation: brilho 4s infinite;
+animation: brilho 5s infinite;
+z-index:3;
 }
-
 
 @keyframes brilho{
 
 0%{
-transform:translateY(0);
+transform:translateY(-20px);
 opacity:0;
 }
 
@@ -56,17 +54,15 @@ opacity:0;
 }
 
 
-
 /* CAPA */
-
 
 .hero{
 
 height:100vh;
 
 background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),
-url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1200");
+linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.55)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1500");
 
 background-size:cover;
 background-position:center;
@@ -75,53 +71,68 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+
 color:white;
 
 }
 
 
-
 .hero h1{
 
-font-size:60px;
-animation:entrada 2s;
+font-size:65px;
 
 }
 
 
 .anel{
 
-font-size:55px;
+font-size:60px;
 
 }
 
 
+.hero p{
 
-@keyframes entrada{
-
-from{
-opacity:0;
-transform:translateY(40px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
+font-size:25px;
 
 }
-
 
 
 .botao{
 
-background:white;
-padding:15px 35px;
+display:inline-block;
+margin-top:25px;
+padding:15px 40px;
 border-radius:50px;
-text-decoration:none;
+background:white;
 color:#333;
+text-decoration:none;
 
 }
+
+
+
+/* BOTÃO MUSICA */
+
+.musicBtn{
+
+position:fixed;
+bottom:20px;
+right:20px;
+z-index:20;
+
+background:#d4af37;
+color:white;
+
+padding:15px 20px;
+border-radius:50px;
+
+cursor:pointer;
+
+box-shadow:0 5px 20px #999;
+
+}
+
 
 
 
@@ -133,15 +144,21 @@ text-align:center;
 }
 
 
+h2{
+
+font-size:45px;
+
+}
+
+
 
 /* GALERIA */
 
-
 .gallery{
 
-columns:3 250px;
+columns:3 260px;
 gap:20px;
-padding:20px;
+padding:30px;
 
 }
 
@@ -151,8 +168,6 @@ padding:20px;
 break-inside:avoid;
 margin-bottom:20px;
 
-animation: subir 1s;
-
 }
 
 
@@ -160,7 +175,7 @@ animation: subir 1s;
 .card img{
 
 width:100%;
-border-radius:20px;
+border-radius:25px;
 cursor:pointer;
 
 transition:.5s;
@@ -171,8 +186,8 @@ transition:.5s;
 
 .card img:hover{
 
-transform:scale(1.05) rotate(1deg);
-box-shadow:0 20px 40px #c9a227;
+transform:scale(1.06);
+box-shadow:0 20px 40px rgba(200,150,20,.5);
 
 }
 
@@ -181,31 +196,36 @@ box-shadow:0 20px 40px #c9a227;
 .legenda{
 
 background:white;
-padding:12px;
+padding:15px;
 border-radius:15px;
+margin-top:10px;
 
 }
 
 
 
-/* LIGHTBOX */
+
+/* FOTO GRANDE */
 
 
 .lightbox{
 
 display:none;
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
 height:100%;
 
-background:#000e;
+background:rgba(0,0,0,.92);
 
 align-items:center;
 justify-content:center;
 
-z-index:99;
+z-index:100;
 
 }
 
@@ -225,22 +245,24 @@ border-radius:20px;
 position:absolute;
 top:20px;
 right:30px;
+
+font-size:50px;
 color:white;
-font-size:45px;
+
+cursor:pointer;
 
 }
 
 
-
-/* MAPA */
 
 
 iframe{
 
 width:90%;
 height:350px;
+
 border:0;
-border-radius:20px;
+border-radius:25px;
 
 }
 
@@ -251,6 +273,7 @@ footer{
 background:#222;
 color:white;
 padding:40px;
+text-align:center;
 
 }
 
@@ -262,16 +285,28 @@ padding:40px;
 </head>
 
 
-
 <body>
 
 
 
-<!-- BRILHOS -->
+<!-- MUSICA -->
 
-<div class="sparkle"></div>
-<div class="sparkle"></div>
-<div class="sparkle"></div>
+<audio id="musica" loop>
+
+<source src="https://cdn.pixabay.com/audio/2023/03/06/audio_5c9d1d6f5b.mp3">
+
+</audio>
+
+
+
+<div class="musicBtn" onclick="tocarMusica()">
+
+🎵 Música
+
+</div>
+
+
+
 
 
 
@@ -279,6 +314,7 @@ padding:40px;
 
 
 <div>
+
 
 <h1>
 
@@ -292,18 +328,27 @@ Catarina
 
 
 <p>
+
 Nosso Noivado ❤️
+
 </p>
 
 
 <h3>
-Convidado Nº 001<br>
-Seja bem-vindo ao nosso momento especial
+
+Convidado Nº 001
+
+<br>
+
+Bem-vindo ao nosso momento especial
+
 </h3>
 
 
-<a href="#fotos" class="botao">
-Ver Fotos
+<a href="#galeria" class="botao">
+
+Ver Momentos
+
 </a>
 
 
@@ -315,38 +360,44 @@ Ver Fotos
 
 
 
-<audio autoplay loop>
-
-<source src="https://cdn.pixabay.com/audio/2022/10/25/audio_8c5b44c3f6.mp3">
-
-</audio>
-
-
-
 
 
 
 <section>
 
+
 <h2>
-Nossa História
+
+Nossa História ❤️
+
 </h2>
 
+
 <p>
-Um amor, duas vidas e uma promessa para sempre.
+
+Um amor, uma promessa e uma nova caminhada.
+
 </p>
+
 
 </section>
 
 
 
 
-<section id="fotos">
+
+
+
+
+<section id="galeria">
 
 
 <h2>
+
 Momentos Especiais 📸
+
 </h2>
+
 
 
 <div class="gallery">
@@ -356,14 +407,16 @@ Momentos Especiais 📸
 <div class="card">
 
 <img onclick="abrir(this.src)"
-
-src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700">
+src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900">
 
 <div class="legenda">
-O dia em que começou uma nova história ❤️
+
+O início de uma linda história ✨
+
 </div>
 
 </div>
+
 
 
 
@@ -371,14 +424,16 @@ O dia em que começou uma nova história ❤️
 <div class="card">
 
 <img onclick="abrir(this.src)"
-
-src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700">
+src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900">
 
 <div class="legenda">
-Um sorriso que vale mais que mil palavras ✨
+
+Um momento para guardar no coração ❤️
+
 </div>
 
 </div>
+
 
 
 
@@ -386,11 +441,29 @@ Um sorriso que vale mais que mil palavras ✨
 <div class="card">
 
 <img onclick="abrir(this.src)"
-
-src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700">
+src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=900">
 
 <div class="legenda">
-Uma promessa feita de coração 💍
+
+Duas vidas, um só caminho 💍
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img onclick="abrir(this.src)"
+src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=900">
+
+<div class="legenda">
+
+Que este amor seja eterno ✨
+
 </div>
 
 </div>
@@ -398,6 +471,7 @@ Uma promessa feita de coração 💍
 
 
 </div>
+
 
 </section>
 
@@ -405,16 +479,29 @@ Uma promessa feita de coração 💍
 
 
 
+
+
 <section>
 
+
 <h2>
+
 Local do Noivado 📍
+
 </h2>
+
+
+<p>
+
+Kianami - Salão p/ Festas e Outros Eventos
+
+</p>
+
 
 
 <iframe
 
-src="https://maps.google.com/maps?q=Luanda%20Angola&t=&z=13&ie=UTF8&iwloc=&output=embed">
+src="https://www.google.com/maps?q=Kianami+Sal%C3%A3o+p%2F+Festas+e+Outros+Eventos+Rua+E+bairro+Palanca+Luanda+Angola&output=embed">
 
 </iframe>
 
@@ -425,28 +512,39 @@ src="https://maps.google.com/maps?q=Luanda%20Angola&t=&z=13&ie=UTF8&iwloc=&outpu
 
 
 
+
+
 <div class="lightbox" id="box">
 
 
 <div class="fechar" onclick="fechar()">
+
 ×
+
+</div>
+
+
+<img id="imagemGrande">
+
+
 </div>
 
 
-<img id="imagem">
-
-</div>
 
 
 
 
 <footer>
 
-Gustavo ❤️ Catarina  
-<br>
-Obrigado por fazer parte da nossa história
+Gustavo ❤️ Catarina
+
+<br><br>
+
+Obrigado por fazer parte deste momento
 
 </footer>
+
+
 
 
 
@@ -455,13 +553,25 @@ Obrigado por fazer parte da nossa história
 <script>
 
 
+
+function tocarMusica(){
+
+let m=document.getElementById("musica");
+
+m.play();
+
+}
+
+
+
 function abrir(src){
 
-document.getElementById("imagem").src=src;
+document.getElementById("imagemGrande").src=src;
 
 document.getElementById("box").style.display="flex";
 
 }
+
 
 
 function fechar(){
@@ -473,7 +583,6 @@ document.getElementById("box").style.display="none";
 
 
 
-// criar mais brilhos
 
 for(let i=0;i<40;i++){
 
@@ -491,9 +600,21 @@ document.body.appendChild(s);
 
 
 
+
+
+window.onload=function(){
+
+document.getElementById("musica").play()
+.catch(()=>{});
+
+}
+
+
+
 </script>
 
 
 
 </body>
+
 </html>
