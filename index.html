@@ -9,50 +9,81 @@
 
 <style>
 
-
 *{
 box-sizing:border-box;
 }
 
-
 body{
-
 margin:0;
 font-family:Georgia,serif;
 background:#fff8f3;
-overflow-x:hidden;
 color:#333;
-
+overflow-x:hidden;
 }
 
 
+/* CHUVA DE OURO */
 
-/* PARTICULAS */
-
-.spark{
+.gold{
 
 position:fixed;
+top:-20px;
 width:8px;
 height:8px;
-background:#fff;
+
+background:linear-gradient(45deg,#fff700,#c99500);
+
 border-radius:50%;
+
 box-shadow:
 0 0 15px #ffd700,
 0 0 30px #fff;
 
-animation: cair 6s infinite;
+animation:goldfall 4s linear forwards;
 
-z-index:5;
+z-index:999;
+
+}
+
+
+@keyframes goldfall{
+
+to{
+
+transform:translateY(110vh) rotate(720deg);
+
+opacity:0;
+
+}
 
 }
 
 
 
-@keyframes cair{
+/* BRILHOS CONSTANTES */
+
+.spark{
+
+position:fixed;
+width:5px;
+height:5px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:0 0 20px gold;
+
+animation:spark 6s infinite;
+
+}
+
+
+@keyframes spark{
 
 0%{
-transform:translateY(-20px);
 opacity:0;
+transform:translateY(0);
 }
 
 50%{
@@ -60,15 +91,14 @@ opacity:1;
 }
 
 100%{
-transform:translateY(100vh);
 opacity:0;
+transform:translateY(100vh);
 }
 
 }
 
 
 
-/* CAPA */
 
 
 .hero{
@@ -76,86 +106,158 @@ opacity:0;
 height:100vh;
 
 background:
+
 linear-gradient(#0005,#0008),
 url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1500");
+
 
 background-size:cover;
 background-position:center;
 
+
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 
 text-align:center;
+
 color:white;
 
 
 }
 
 
+
 .hero h1{
 
-font-size:70px;
+font-size:65px;
 
 text-shadow:
-0 0 20px gold;
+
+0 0 20px gold,
+0 0 40px #fff;
+
 
 }
 
 
-.anel{
 
-font-size:70px;
+
+/* ANEL */
+
+.ring{
+
+font-size:75px;
+
+filter:
+
+drop-shadow(0 0 20px #ffd700)
+
+drop-shadow(0 0 40px white);
+
+
+animation:ring 2s infinite;
 
 }
+
+
+
+@keyframes ring{
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+}
+
+
+
+
+/* PEDRA */
+
+.diamond{
+
+display:inline-block;
+
+color:white;
+
+text-shadow:
+
+0 0 15px #fff,
+
+0 0 40px cyan,
+
+0 0 70px white;
+
+animation:diamond 1s infinite alternate;
+
+}
+
+
+@keyframes diamond{
+
+from{
+
+opacity:.6;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+
 
 
 
 .botao{
 
-padding:15px 40px;
-border-radius:40px;
-background:#fff;
+background:white;
 color:#333;
+
+padding:15px 40px;
+
+border-radius:40px;
+
 text-decoration:none;
 
-}
-
-
-
-/* CONTADOR */
-
-
-.contador{
-
-padding:30px;
-background:#fff;
-
-font-size:25px;
 
 }
 
 
 
-.numero{
 
-font-size:45px;
-color:#c9a227;
-
-}
+/* MUSICA */
 
 
+.music{
 
-/* QR VISITA */
+position:fixed;
 
+right:20px;
+bottom:20px;
 
-.visitante{
+background:#c9a227;
 
-background:white;
-padding:30px;
-margin:30px;
-border-radius:25px;
-box-shadow:0 10px 30px #ddd;
+color:white;
+
+padding:15px 25px;
+
+border-radius:40px;
+
+z-index:20;
+
+cursor:pointer;
+
+box-shadow:0 0 20px gold;
 
 }
 
@@ -163,22 +265,29 @@ box-shadow:0 10px 30px #ddd;
 
 
 
-/* GALERIA */
+section{
+
+padding:70px 8%;
+
+text-align:center;
+
+}
+
 
 
 .gallery{
 
-columns:3 250px;
-padding:40px;
-gap:20px;
+columns:3 260px;
+
+padding:30px;
 
 }
-
 
 
 .card{
 
 break-inside:avoid;
+
 margin-bottom:20px;
 
 }
@@ -188,7 +297,9 @@ margin-bottom:20px;
 .card img{
 
 width:100%;
+
 border-radius:25px;
+
 cursor:pointer;
 
 transition:.5s;
@@ -200,41 +311,24 @@ transition:.5s;
 .card img:hover{
 
 transform:scale(1.06);
+
 box-shadow:0 0 40px gold;
 
 }
 
 
 
+
 .legenda{
 
 background:white;
+
 padding:15px;
+
 border-radius:15px;
 
 }
 
-
-
-
-
-/* MUSICA */
-
-
-.music{
-
-position:fixed;
-bottom:20px;
-right:20px;
-z-index:20;
-
-background:#c9a227;
-color:white;
-padding:15px 25px;
-border-radius:50px;
-cursor:pointer;
-
-}
 
 
 
@@ -246,16 +340,19 @@ cursor:pointer;
 display:none;
 
 position:fixed;
+
 top:0;
 left:0;
 
 width:100%;
 height:100%;
 
-background:#000e;
+
+background:#000d;
 
 align-items:center;
 justify-content:center;
+
 
 z-index:100;
 
@@ -266,6 +363,7 @@ z-index:100;
 .lightbox img{
 
 max-width:90%;
+
 max-height:90%;
 
 border-radius:20px;
@@ -277,9 +375,13 @@ border-radius:20px;
 .fechar{
 
 position:absolute;
+
 right:30px;
+
 top:20px;
+
 font-size:50px;
+
 color:white;
 
 }
@@ -287,13 +389,35 @@ color:white;
 
 
 
+.contador{
+
+font-size:25px;
+
+padding:40px;
+
+text-align:center;
+
+}
+
+
+.numero{
+
+font-size:45px;
+
+color:#c9a227;
+
+}
+
+
 
 iframe{
 
 width:90%;
+
 height:350px;
 
 border:0;
+
 border-radius:25px;
 
 }
@@ -303,8 +427,11 @@ border-radius:25px;
 footer{
 
 background:#222;
+
 color:white;
+
 padding:40px;
+
 text-align:center;
 
 }
@@ -316,25 +443,24 @@ text-align:center;
 </head>
 
 
-
 <body>
 
 
 
-<!-- MUSICA -->
-
 <audio id="musica" loop>
 
-<source src="https://cdn.pixabay.com/audio/2023/03/06/audio_5c9d1d6f5b.mp3">
+<source src="https://cdn.pixabay.com/audio/2022/02/23/audio_51b7f2e9d4.mp3">
 
 </audio>
 
 
+
 <div class="music" onclick="playMusic()">
 
-🎵 Música
+🎵 Ouvir música
 
 </div>
+
 
 
 
@@ -350,9 +476,20 @@ text-align:center;
 
 Gustavo
 
-<span class="anel">💍</span>
+<span class="ring">
+
+💍
+
+</span>
+
+<span class="diamond">
+
+✦
+
+</span>
 
 Catarina
+
 
 </h1>
 
@@ -364,55 +501,14 @@ Nosso Noivado ❤️
 </p>
 
 
-</div>
+<a class="botao" href="#galeria">
 
-</div>
+Ver momentos
 
+</a>
 
-
-
-
-
-<!-- QR DINAMICO -->
-
-
-<div class="visitante">
-
-
-<h2>
-
-💌 Bem-vindo
-
-</h2>
-
-
-<h3 id="guest">
-
-A carregar convite...
-
-</h3>
-
-
-
-<p>
-
-Este convite já foi visitado:
-
-</p>
-
-
-<div class="numero" id="visitas">
-
-0
 
 </div>
-
-
-<p>
-
-vezes
-
-</p>
 
 
 </div>
@@ -420,24 +516,13 @@ vezes
 
 
 
-
-
-
-
-<!-- CONTADOR -->
 
 
 <div class="contador">
 
+<h2>⏳ Contagem regressiva</h2>
 
-<h2>
-
-⏳ Contagem regressiva
-
-</h2>
-
-
-<div id="contador">
+<div id="tempo">
 
 A calcular...
 
@@ -451,10 +536,7 @@ A calcular...
 
 
 
-
-
-
-<section>
+<section id="galeria">
 
 
 <h2>
@@ -465,8 +547,8 @@ Momentos Especiais 📸
 
 
 
-<div class="gallery">
 
+<div class="gallery">
 
 
 <div class="card">
@@ -478,9 +560,10 @@ src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900">
 
 <div class="legenda">
 
-O começo da nossa história ❤️
+Um momento guardado para sempre ❤️
 
 </div>
+
 
 </div>
 
@@ -497,11 +580,12 @@ src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900">
 
 <div class="legenda">
 
-Um momento inesquecível ✨
+Um sorriso cheio de amor ✨
 
 </div>
 
 </div>
+
 
 
 
@@ -516,12 +600,11 @@ src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=900">
 
 <div class="legenda">
 
-Amor para sempre 💍
+Uma promessa para sempre 💍
 
 </div>
 
 </div>
-
 
 
 </div>
@@ -535,10 +618,7 @@ Amor para sempre 💍
 
 
 
-
-
 <section>
-
 
 <h2>
 
@@ -547,10 +627,10 @@ Local 📍
 </h2>
 
 
-
 <iframe
 
 src="https://www.google.com/maps?q=Kianami+Sal%C3%A3o+p%2F+Festas+e+Outros+Eventos+Rua+E+bairro+Palanca+Luanda+Angola&output=embed">
+
 
 </iframe>
 
@@ -562,20 +642,11 @@ src="https://www.google.com/maps?q=Kianami+Sal%C3%A3o+p%2F+Festas+e+Outros+Event
 
 
 
-
-
-
 <div class="lightbox" id="box">
 
-<div class="fechar" onclick="fechar()">
-
-×
-
-</div>
-
+<div class="fechar" onclick="fechar()">×</div>
 
 <img id="fotoGrande">
-
 
 </div>
 
@@ -588,11 +659,12 @@ src="https://www.google.com/maps?q=Kianami+Sal%C3%A3o+p%2F+Festas+e+Outros+Event
 
 Gustavo ❤️ Catarina
 
-<br>
+<br><br>
 
-O nosso dia especial
+Nosso dia especial 💍
 
 </footer>
+
 
 
 
@@ -603,93 +675,58 @@ O nosso dia especial
 
 
 
-// QR DINAMICO
 
-
-let url=new URLSearchParams(window.location.search);
-
-
-let convidado=url.get("convidado");
-
-
-if(convidado){
-
-document.getElementById("guest").innerHTML=
-
-"Convidado Nº "+convidado+
-"<br>Seja bem-vindo ao nosso noivado ❤️";
-
-
-}
-
-else{
-
-
-document.getElementById("guest").innerHTML=
-
-"Convidado especial ❤️";
-
-}
-
-
-
-
-
-let visitas=
-localStorage.getItem("visitas") || 0;
-
-
-visitas++;
-
-
-localStorage.setItem("visitas",visitas);
-
-
-document.getElementById("visitas").innerHTML=visitas;
-
-
-
-
-
-
-// DATA DO EVENTO
-
-let evento=new Date("December 20, 2026 18:00:00").getTime();
-
-
-
-setInterval(function(){
-
-
-let agora=new Date().getTime();
-
-
-let falta=evento-agora;
-
-
-
-let dias=Math.floor(falta/(1000*60*60*24));
-
-
-
-document.getElementById("contador").innerHTML=
-
-dias+" dias para o nosso momento 💍";
-
-
-
-},1000);
-
-
-
-
-
+// MUSICA
 
 function playMusic(){
 
 document.getElementById("musica").play();
 
 }
+
+
+
+
+window.onload=function(){
+
+document.getElementById("musica")
+
+.play()
+
+.catch(()=>{});
+
+}
+
+
+
+
+
+
+
+// CONTADOR
+
+let data=new Date("December 20, 2026 18:00:00").getTime();
+
+
+setInterval(()=>{
+
+
+let agora=new Date().getTime();
+
+let falta=data-agora;
+
+
+let dias=Math.floor(falta/(1000*60*60*24));
+
+
+document.getElementById("tempo").innerHTML=
+
+dias+" dias para o grande momento 💍";
+
+
+
+},1000);
+
 
 
 
@@ -706,7 +743,6 @@ document.getElementById("box").style.display="flex";
 
 
 
-
 function fechar(){
 
 document.getElementById("box").style.display="none";
@@ -717,7 +753,41 @@ document.getElementById("box").style.display="none";
 
 
 
-for(let i=0;i<60;i++){
+// CHUVA DE OURO APENAS PRIMEIRA VISITA
+
+
+if(!localStorage.getItem("primeiraVisita")){
+
+
+for(let i=0;i<80;i++){
+
+
+let g=document.createElement("div");
+
+g.className="gold";
+
+g.style.left=Math.random()*100+"%";
+
+g.style.animationDelay=Math.random()*2+"s";
+
+
+document.body.appendChild(g);
+
+
+}
+
+
+localStorage.setItem("primeiraVisita","sim");
+
+
+}
+
+
+
+
+
+
+for(let i=0;i<30;i++){
 
 let s=document.createElement("div");
 
@@ -729,11 +799,15 @@ s.style.animationDelay=Math.random()*5+"s";
 
 document.body.appendChild(s);
 
+
 }
 
 
 
+
+
 </script>
+
 
 
 </body>
