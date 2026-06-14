@@ -1,815 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Gustavo 💍 Catarina</title>
-
+<title>Gustavo ❤️ Catarina</title>
 <style>
-
-*{
-box-sizing:border-box;
-}
-
-body{
-margin:0;
-font-family:Georgia,serif;
-background:#fff8f3;
-color:#333;
-overflow-x:hidden;
-}
-
-
-/* CHUVA DE OURO */
-
-.gold{
-
-position:fixed;
-top:-20px;
-width:8px;
-height:8px;
-
-background:linear-gradient(45deg,#fff700,#c99500);
-
-border-radius:50%;
-
-box-shadow:
-0 0 15px #ffd700,
-0 0 30px #fff;
-
-animation:goldfall 4s linear forwards;
-
-z-index:999;
-
-}
-
-
-@keyframes goldfall{
-
-to{
-
-transform:translateY(110vh) rotate(720deg);
-
-opacity:0;
-
-}
-
-}
-
-
-
-/* BRILHOS CONSTANTES */
-
-.spark{
-
-position:fixed;
-width:5px;
-height:5px;
-
-background:white;
-
-border-radius:50%;
-
-box-shadow:0 0 20px gold;
-
-animation:spark 6s infinite;
-
-}
-
-
-@keyframes spark{
-
-0%{
-opacity:0;
-transform:translateY(0);
-}
-
-50%{
-opacity:1;
-}
-
-100%{
-opacity:0;
-transform:translateY(100vh);
-}
-
-}
-
-
-
-
-
-.hero{
-
-height:100vh;
-
-background:
-
-linear-gradient(#0005,#0008),
-url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1500");
-
-
-background-size:cover;
-background-position:center;
-
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-
-color:white;
-
-
-}
-
-
-
-.hero h1{
-
-font-size:65px;
-
-text-shadow:
-
-0 0 20px gold,
-0 0 40px #fff;
-
-
-}
-
-
-
-
-/* ANEL */
-
-.ring{
-
-font-size:75px;
-
-filter:
-
-drop-shadow(0 0 20px #ffd700)
-
-drop-shadow(0 0 40px white);
-
-
-animation:ring 2s infinite;
-
-}
-
-
-
-@keyframes ring{
-
-50%{
-
-transform:scale(1.15);
-
-}
-
-}
-
-
-
-
-/* PEDRA */
-
-.diamond{
-
-display:inline-block;
-
-color:white;
-
-text-shadow:
-
-0 0 15px #fff,
-
-0 0 40px cyan,
-
-0 0 70px white;
-
-animation:diamond 1s infinite alternate;
-
-}
-
-
-@keyframes diamond{
-
-from{
-
-opacity:.6;
-
-}
-
-to{
-
-opacity:1;
-
-}
-
-}
-
-
-
-
-
-
-
-.botao{
-
-background:white;
-color:#333;
-
-padding:15px 40px;
-
-border-radius:40px;
-
-text-decoration:none;
-
-
-}
-
-
-
-
-/* MUSICA */
-
-
-.music{
-
-position:fixed;
-
-right:20px;
-bottom:20px;
-
-background:#c9a227;
-
-color:white;
-
-padding:15px 25px;
-
-border-radius:40px;
-
-z-index:20;
-
-cursor:pointer;
-
-box-shadow:0 0 20px gold;
-
-}
-
-
-
-
-
-section{
-
-padding:70px 8%;
-
-text-align:center;
-
-}
-
-
-
-.gallery{
-
-columns:3 260px;
-
-padding:30px;
-
-}
-
-
-.card{
-
-break-inside:avoid;
-
-margin-bottom:20px;
-
-}
-
-
-
-.card img{
-
-width:100%;
-
-border-radius:25px;
-
-cursor:pointer;
-
-transition:.5s;
-
-}
-
-
-
-.card img:hover{
-
-transform:scale(1.06);
-
-box-shadow:0 0 40px gold;
-
-}
-
-
-
-
-.legenda{
-
-background:white;
-
-padding:15px;
-
-border-radius:15px;
-
-}
-
-
-
-
-/* LIGHTBOX */
-
-
-.lightbox{
-
-display:none;
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-
-background:#000d;
-
-align-items:center;
-justify-content:center;
-
-
-z-index:100;
-
-}
-
-
-
-.lightbox img{
-
-max-width:90%;
-
-max-height:90%;
-
-border-radius:20px;
-
-}
-
-
-
-.fechar{
-
-position:absolute;
-
-right:30px;
-
-top:20px;
-
-font-size:50px;
-
-color:white;
-
-}
-
-
-
-
-.contador{
-
-font-size:25px;
-
-padding:40px;
-
-text-align:center;
-
-}
-
-
-.numero{
-
-font-size:45px;
-
-color:#c9a227;
-
-}
-
-
-
-iframe{
-
-width:90%;
-
-height:350px;
-
-border:0;
-
-border-radius:25px;
-
-}
-
-
-
-footer{
-
-background:#222;
-
-color:white;
-
-padding:40px;
-
-text-align:center;
-
-}
-
-
-
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,serif;background:#fff8f3;color:#333;scroll-behavior:smooth}
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+.hero h1{font-size:4rem;text-shadow:0 0 20px gold}
+.hero p{font-size:1.3rem;margin:15px 0}
+.btn{display:inline-block;padding:14px 30px;background:gold;color:#222;text-decoration:none;border-radius:40px;font-weight:bold}
+.music{position:fixed;right:20px;bottom:20px;z-index:99;background:#c9a227;color:#fff;padding:12px 22px;border-radius:30px;cursor:pointer}
+section{padding:70px 8%;text-align:center}
+h2{margin-bottom:25px;color:#b8860b}
+.countdown{font-size:1.8rem}
+.timeline,.story,.rsvp,.guestbook{max-width:900px;margin:auto}
+.card{background:#fff;padding:20px;border-radius:20px;box-shadow:0 4px 15px rgba(0,0,0,.08);margin:15px 0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.gallery img{width:100%;border-radius:20px;cursor:pointer;height:280px;object-fit:cover}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);justify-content:center;align-items:center;z-index:999}
+.lightbox img{max-width:90%;max-height:90%}
+.close{position:absolute;top:20px;right:30px;color:white;font-size:40px;cursor:pointer}
+input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
+button{padding:12px 25px;background:#c9a227;color:white;border:none;border-radius:10px;cursor:pointer}
+iframe{width:100%;height:350px;border:0;border-radius:20px}
+footer{background:#222;color:white;text-align:center;padding:40px}
+.gold{position:fixed;top:-10px;width:6px;height:6px;background:gold;border-radius:50%;animation:fall 5s linear infinite}
+@keyframes fall{to{transform:translateY(110vh);opacity:0}}
 </style>
-
 </head>
-
-
 <body>
 
-
-
 <audio id="musica" loop>
-
 <source src="https://cdn.pixabay.com/audio/2022/02/23/audio_51b7f2e9d4.mp3">
-
 </audio>
 
+<div class="music" onclick="document.getElementById('musica').play()">🎵 Música</div>
 
-
-<div class="music" onclick="playMusic()">
-
-🎵 Ouvir música
-
-</div>
-
-
-
-
-
-
-<div class="hero">
-
-
+<section class="hero">
 <div>
-
-
-<h1>
-
-Gustavo
-
-<span class="ring">
-
-💍
-
-</span>
-
-<span class="diamond">
-
-✦
-
-</span>
-
-Catarina
-
-
-</h1>
-
-
-<p>
-
-Nosso Noivado ❤️
-
-</p>
-
-
-<a class="botao" href="#galeria">
-
-Ver momentos
-
-</a>
-
-
+<h1>Gustavo 💍 Catarina</h1>
+<p>Nosso Noivado • 20 de Dezembro de 2026 • 18h00</p>
+<a href="#galeria" class="btn">Ver Momentos</a>
 </div>
-
-
-</div>
-
-
-
-
-
-
-<div class="contador">
-
-<h2>⏳ Contagem regressiva</h2>
-
-<div id="tempo">
-
-A calcular...
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<section id="galeria">
-
-
-<h2>
-
-Momentos Especiais 📸
-
-</h2>
-
-
-
-
-<div class="gallery">
-
-
-<div class="card">
-
-<img onclick="abrir(this.src)"
-
-src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900">
-
-
-<div class="legenda">
-
-Um momento guardado para sempre ❤️
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<img onclick="abrir(this.src)"
-
-src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900">
-
-
-<div class="legenda">
-
-Um sorriso cheio de amor ✨
-
-</div>
-
-</div>
-
-
-
-
-
-
-<div class="card">
-
-<img onclick="abrir(this.src)"
-
-src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=900">
-
-
-<div class="legenda">
-
-Uma promessa para sempre 💍
-
-</div>
-
-</div>
-
-
-</div>
-
-
 </section>
-
-
-
-
-
-
 
 <section>
-
-<h2>
-
-Local 📍
-
-</h2>
-
-
-<iframe
-
-src="https://www.google.com/maps?q=Kianami+Sal%C3%A3o+p%2F+Festas+e+Outros+Eventos+Rua+E+bairro+Palanca+Luanda+Angola&output=embed">
-
-
-</iframe>
-
-
+<h2>⏳ Contagem Regressiva</h2>
+<div id="contador" class="countdown"></div>
 </section>
 
+<section class="story">
+<h2>❤️ Nossa História</h2>
+<div class="card">Foi o destino que cruzou os nossos caminhos. Entre sorrisos, conversas e sonhos, nasceu uma história de amor que nos trouxe até aqui.</div>
+<div class="card">Hoje celebramos o nosso noivado e convidamos todos a fazer parte deste momento especial.</div>
+</section>
 
+<section class="timeline">
+<h2>📅 Cronograma</h2>
+<div class="card">16h00 — Recepção dos convidados</div>
+<div class="card">17h00 — Cerimónia</div>
+<div class="card">18h30 — Sessão de fotos</div>
+<div class="card">19h00 — Jantar e celebração</div>
+</section>
 
+<section id="galeria">
+<h2>📸 Galeria</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900" onclick="openImg(this.src)">
+<img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900" onclick="openImg(this.src)">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=900" onclick="openImg(this.src)">
+</div>
+</section>
 
+<section>
+<h2>📍 Local</h2>
+<iframe src="https://www.google.com/maps?q=Kianami+Salão+p%2F+Festas+e+Outros+Eventos+Rua+E+bairro+Palanca+Luanda+Angola&output=embed"></iframe>
+</section>
 
+<section class="rsvp">
+<h2>✅ Confirmação de Presença</h2>
+<div class="card">
+<input placeholder="Seu nome">
+<input placeholder="Telefone">
+<input placeholder="Número de acompanhantes">
+<button>Confirmar Presença</button>
+</div>
+</section>
 
-<div class="lightbox" id="box">
+<section class="guestbook">
+<h2>💌 Livro de Mensagens</h2>
+<div class="card">
+<textarea rows="5" placeholder="Deixe uma mensagem para os noivos"></textarea>
+<button>Enviar Mensagem</button>
+</div>
+</section>
 
-<div class="fechar" onclick="fechar()">×</div>
+<section>
+<h2>📲 Partilhar</h2>
+<a class="btn" href="https://wa.me/?text=Venha%20celebrar%20o%20nosso%20noivado!">WhatsApp</a>
+<a class="btn" href="#" style="margin-left:10px">Convite PDF</a>
+</section>
 
-<img id="fotoGrande">
-
+<div class="lightbox" id="lb">
+<span class="close" onclick="document.getElementById('lb').style.display='none'">&times;</span>
+<img id="big">
 </div>
 
-
-
-
-
-
 <footer>
-
-Gustavo ❤️ Catarina
-
-<br><br>
-
-Nosso dia especial 💍
-
+Gustavo ❤️ Catarina<br>Nosso dia especial 💍
 </footer>
 
-
-
-
-
-
-
 <script>
-
-
-
-
-// MUSICA
-
-function playMusic(){
-
-document.getElementById("musica").play();
-
-}
-
-
-
-
-window.onload=function(){
-
-document.getElementById("musica")
-
-.play()
-
-.catch(()=>{});
-
-}
-
-
-
-
-
-
-
-// CONTADOR
-
-let data=new Date("December 20, 2026 18:00:00").getTime();
-
-
+const target=new Date("2026-12-20T18:00:00").getTime();
 setInterval(()=>{
-
-
-let agora=new Date().getTime();
-
-let falta=data-agora;
-
-
-let dias=Math.floor(falta/(1000*60*60*24));
-
-
-document.getElementById("tempo").innerHTML=
-
-dias+" dias para o grande momento 💍";
-
-
-
+let now=new Date().getTime();
+let d=target-now;
+let dias=Math.floor(d/86400000);
+let horas=Math.floor((d%86400000)/3600000);
+let min=Math.floor((d%3600000)/60000);
+let seg=Math.floor((d%60000)/1000);
+document.getElementById("contador").innerHTML=`${dias} dias ${horas}h ${min}m ${seg}s`;
 },1000);
 
-
-
-
-
-
-
-function abrir(src){
-
-document.getElementById("fotoGrande").src=src;
-
-document.getElementById("box").style.display="flex";
-
+function openImg(src){
+document.getElementById('big').src=src;
+document.getElementById('lb').style.display='flex';
 }
 
-
-
-function fechar(){
-
-document.getElementById("box").style.display="none";
-
+for(let i=0;i<40;i++){
+let e=document.createElement('div');
+e.className='gold';
+e.style.left=Math.random()*100+'%';
+e.style.animationDelay=Math.random()*5+'s';
+document.body.appendChild(e);
 }
-
-
-
-
-
-// CHUVA DE OURO APENAS PRIMEIRA VISITA
-
-
-if(!localStorage.getItem("primeiraVisita")){
-
-
-for(let i=0;i<80;i++){
-
-
-let g=document.createElement("div");
-
-g.className="gold";
-
-g.style.left=Math.random()*100+"%";
-
-g.style.animationDelay=Math.random()*2+"s";
-
-
-document.body.appendChild(g);
-
-
-}
-
-
-localStorage.setItem("primeiraVisita","sim");
-
-
-}
-
-
-
-
-
-
-for(let i=0;i<30;i++){
-
-let s=document.createElement("div");
-
-s.className="spark";
-
-s.style.left=Math.random()*100+"%";
-
-s.style.animationDelay=Math.random()*5+"s";
-
-document.body.appendChild(s);
-
-
-}
-
-
-
-
-
 </script>
-
-
-
 </body>
-
 </html>
