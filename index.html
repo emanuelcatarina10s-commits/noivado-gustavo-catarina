@@ -98,6 +98,9 @@ footer{background:#222;color:white;text-align:center;padding:40px}
 </section>
 
 <section>
+  <div class="contador-visitas">
+    👁️ <span id="visitas">0</span> visitas
+</div>
 <h2>📲 Partilhar</h2>
 <a class="btn" href="https://wa.me/?text=Venha%20celebrar%20o%20nosso%20noivado!">WhatsApp</a>
 <a class="btn" href="#" style="margin-left:10px">Convite PDF</a>
@@ -136,6 +139,13 @@ e.style.left=Math.random()*100+'%';
 e.style.animationDelay=Math.random()*5+'s';
 document.body.appendChild(e);
 }
+</script>
+  <script>
+fetch('https://api.countapi.xyz/hit/noivado-gustavo-catarina/visitas')
+.then(response => response.json())
+.then(data => {
+    document.getElementById('visitas').innerText = data.value;
+});
 </script>
 </body>
 </html>
