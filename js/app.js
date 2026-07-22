@@ -1,1 +1,70 @@
-const t=new Date('2026-08-01T17:00:00').getTime();setInterval(()=>{let n=Date.now(),x=t-n;if(x<0)x=0;d=Math.floor(x/86400000);h=Math.floor(x%86400000/3600000);m=Math.floor(x%3600000/60000);s=Math.floor(x%60000/1000);['d','h','m','s'].forEach((id,i)=>document.getElementById(id).textContent=[d,h,m,s][i]);},1000);const a=document.getElementById('musica'),b=document.getElementById('musicBtn');b.onclick=()=>{if(a.paused){a.play();b.textContent='⏸️ Pausar'}else{a.pause();b.textContent='🎵 Música'}};
+function scrollHistoria(){
+
+document
+.getElementById("historia")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+
+let dataEvento =
+new Date("August 1, 2026 17:00:00").getTime();
+
+
+
+setInterval(function(){
+
+
+let agora =
+new Date().getTime();
+
+
+
+let distancia =
+dataEvento - agora;
+
+
+
+let dias =
+Math.floor(
+distancia/(1000*60*60*24)
+);
+
+
+
+let horas =
+Math.floor(
+(distancia%(1000*60*60*24))
+/(1000*60*60)
+);
+
+
+
+let minutos =
+Math.floor(
+(distancia%(1000*60*60))
+/(1000*60)
+);
+
+
+
+let segundos =
+Math.floor(
+(distancia%(1000*60))
+/1000
+);
+
+
+
+document.getElementById("contador").innerHTML =
+
+dias+" dias "+
+horas+" horas "+
+minutos+" minutos "+
+segundos+" segundos";
+
+
+},1000);
