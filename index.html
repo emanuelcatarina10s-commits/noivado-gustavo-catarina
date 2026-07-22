@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,79 +10,85 @@
 
 <link rel="stylesheet" href="css/style.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
 <header class="hero">
 
-<div class="overlay">
+<div class="overlay"></div>
 
-<h1>Gustavo ❤️ Catarina</h1>
+<div class="hero-content">
 
-<p>O nosso amor, a nossa história e o nosso compromisso</p>
+<h1>Gustavo <span>❤</span> Catarina</h1>
 
-<h2>01 de Agosto de 2026</h2>
+<p class="frase">
 
-<button onclick="scrollHistoria()">
-Entrar na nossa história
-</button>
+"Cada história de amor é bonita...
+Mas a nossa é a minha favorita."
+
+</p>
+
+<p class="data">
+
+01 de Agosto de 2026
+
+</p>
+
+<a href="#historia" class="btn">
+
+Conheça a Nossa História
+
+</a>
 
 </div>
 
 </header>
 
-
-<section id="historia">
+<section id="historia" class="historia">
 
 <h2>Nossa História</h2>
 
 <p>
-Duas vidas que se encontraram, dois caminhos que decidiram caminhar juntos.
-Este é o começo de uma nova etapa cheia de amor, respeito e sonhos.
+
+Nem todas as histórias começam com um "Era uma vez".
+
+A nossa começou quando Deus decidiu unir dois corações.
+
+Hoje queremos celebrar este amor ao lado das pessoas que mais amamos.
+
+Obrigado por fazer parte da nossa história.
+
 </p>
 
 </section>
 
+<section class="foto-principal">
 
+<img src="Emanuel/foto-casal.png" alt="Foto do Casal">
 
-<section>
+</section>
 
-<h2>Nossas Memórias</h2>
+<section class="galeria">
 
-<div class="galeria">
+<h2>Nossos Momentos</h2>
 
-<img src="assets/fotos/foto1.jpg">
+<div id="galeria">
 
-<img src="assets/fotos/foto2.jpg">
-
-<img src="assets/fotos/foto3.jpg">
+<!-- As fotos serão inseridas automaticamente pelo JavaScript -->
 
 </div>
 
 </section>
 
+<section class="contador">
 
-
-<section>
-
-<h2>Nossa Música</h2>
-
-<audio controls>
-
-<source src="assets/musica/nossa-musica.mp3" type="audio/mp3">
-
-Seu navegador não suporta áudio.
-
-</audio>
-
-</section>
-
-
-
-<section>
-
-<h2>Contagem para o grande dia</h2>
+<h2>Contagem Regressiva</h2>
 
 <div id="contador">
 
@@ -90,34 +98,61 @@ Carregando...
 
 </section>
 
+<section class="musica">
 
+<h2>A Nossa Música</h2>
 
-<section>
+<audio controls loop>
+
+<source src="Nossa Musica/WhatsApp Audio 2026-06-14 at 12.35.44.mpeg" type="audio/mpeg">
+
+O seu navegador não suporta áudio.
+
+</audio>
+
+</section>
+
+<section class="pedido">
+
+<img src="Emanuel/fotografia 2.png" alt="Pedido de Casamento">
+
+<div class="texto">
+
+<h2>
+
+O nosso para sempre começa agora.
+
+</h2>
+
+</div>
+
+</section>
+
+<section class="local">
 
 <h2>Local do Evento</h2>
 
 <p>
-01 de Agosto de 2026<br>
-17:00 horas
+
+📅 01 de Agosto de 2026
+
+<br><br>
+
+🕔 17:00
+
 </p>
 
-<a class="botao"
-href="#">
-Abrir localização
-</a>
-
 </section>
-
-
 
 <footer>
 
 <p>
+
 Com amor ❤️ Gustavo & Catarina
+
 </p>
 
 </footer>
-
 
 <script src="js/script.js"></script>
 
