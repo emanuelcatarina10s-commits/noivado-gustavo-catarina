@@ -12,9 +12,17 @@ function atualizarContador(){
     const distancia = dataEvento - agora;
 
 
-    if(distancia < 0){
+    const contador = document.getElementById("contador");
 
-        document.getElementById("contador").innerHTML =
+
+    if(!contador){
+        return;
+    }
+
+
+    if(distancia <= 0){
+
+        contador.innerHTML =
         "💍 O grande dia chegou!";
 
         return;
@@ -22,17 +30,23 @@ function atualizarContador(){
     }
 
 
-    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+
+    const dias = Math.floor(
+        distancia / (1000 * 60 * 60 * 24)
+    );
+
 
     const horas = Math.floor(
         (distancia % (1000 * 60 * 60 * 24)) /
         (1000 * 60 * 60)
     );
 
+
     const minutos = Math.floor(
         (distancia % (1000 * 60 * 60)) /
         (1000 * 60)
     );
+
 
     const segundos = Math.floor(
         (distancia % (1000 * 60)) /
@@ -40,14 +54,30 @@ function atualizarContador(){
     );
 
 
-    document.getElementById("contador").innerHTML =
 
-    dias + " Dias<br>" +
-    horas + " Horas<br>" +
-    minutos + " Minutos<br>" +
-    segundos + " Segundos";
+    contador.innerHTML =
+
+    `
+    <div>
+    ${dias} Dias
+    </div>
+
+    <div>
+    ${horas} Horas
+    </div>
+
+    <div>
+    ${minutos} Minutos
+    </div>
+
+    <div>
+    ${segundos} Segundos
+    </div>
+    `;
+
 
 }
+
 
 
 setInterval(atualizarContador,1000);
@@ -57,11 +87,17 @@ atualizarContador();
 
 
 
+
 // ===============================
-// GALERIA AUTOMÁTICA
+// GALERIA AUTOMÁTICA 57 FOTOS
 // ===============================
 
+
 const galeria = document.getElementById("galeria");
+
+
+
+if(galeria){
 
 
 for(let i = 1; i <= 57; i++){
@@ -73,17 +109,27 @@ for(let i = 1; i <= 57; i++){
     img.src = "Emanuel/" + i + ".jpg";
 
 
-    img.alt = "Foto " + i;
+    img.alt = "Momento " + i;
 
 
     img.loading = "lazy";
 
 
-    img.onclick = function(){
 
-        abrirImagem(img.src);
+    img.onerror = function(){
+
+        this.src = "Emanuel/" + i + ".jpeg";
 
     };
+
+
+
+    img.onclick = function(){
+
+        abrirImagem(this.src);
+
+    };
+
 
 
     galeria.appendChild(img);
@@ -92,55 +138,48 @@ for(let i = 1; i <= 57; i++){
 }
 
 
+}
+
+
+
+
 
 
 // ===============================
 // VISUALIZADOR DAS FOTOS
 // ===============================
 
+
 function abrirImagem(src){
 
 
-    const fundo = document.createElement("div");
+const fundo = document.createElement("div");
 
 
-    fundo.style.position = "fixed";
-    fundo.style.left = "0";
-    fundo.style.top = "0";
-    fundo.style.width = "100%";
-    fundo.style.height = "100%";
-    fundo.style.background = "rgba(0,0,0,.9)";
-    fundo.style.display = "flex";
-    fundo.style.justifyContent = "center";
-    fundo.style.alignItems = "center";
-    fundo.style.zIndex = "99999";
-    fundo.style.cursor = "pointer";
-
-
-    const imagem = document.createElement("img");
-
-
-    imagem.src = src;
-
-
-    imagem.style.maxWidth = "92%";
-    imagem.style.maxHeight = "92%";
-    imagem.style.borderRadius = "12px";
-    imagem.style.boxShadow = "0 0 40px rgba(255,255,255,.25)";
-
-
-    fundo.appendChild(imagem);
-
-
-    document.body.appendChild(fundo);
+fundo.className = "visualizador";
 
 
 
-    fundo.onclick = function(){
+const imagem = document.createElement("img");
 
-        fundo.remove();
 
-    };
+imagem.src = src;
+
+
+
+fundo.appendChild(imagem);
+
+
+
+document.body.appendChild(fundo);
+
+
+
+fundo.onclick = function(){
+
+    fundo.remove();
+
+};
 
 
 }
@@ -148,48 +187,121 @@ function abrirImagem(src){
 
 
 
+
+
+
 // ===============================
-// ANIMAÇÃO AO DESCER A PÁGINA
+// MÚSICA AUTOMÁTICA
 // ===============================
 
-const observer = new IntersectionObserver(function(entries){
+
+const musica = document.getElementById("musica");
+
+const botaoSom = document.getElementById("botaoSom");
 
 
-    entries.forEach(function(entry){
+
+if(musica && botaoSom){
 
 
-        if(entry.isIntersecting){
+
+    musica.volume = 0.5;
 
 
-            entry.target.style.opacity = "1";
+    musica.play()
+    .catch(function(){
+
+        console.log("Autoplay bloqueado pelo navegador");
+
+    });
 
 
-            entry.target.style.transform = "translateY(0px)";
+
+    botaoSom.onclick = function(){
+
+
+
+        if(musica.muted){
+
+
+            musica.muted = false;
+
+
+            botaoSom.innerHTML =
+            "🔊 Desligar Som";
+
+
+        }else{
+
+
+            musica.muted = true;
+
+
+            botaoSom.innerHTML =
+            "🔇 Ativar Som";
 
 
         }
 
 
-    });
+
+    };
+
+
+
+}
+
+
+
+
+
+
+
+// ===============================
+// ANIMAÇÃO DAS SECÇÕES
+// ===============================
+
+
+const observer = new IntersectionObserver(function(entries){
+
+
+entries.forEach(function(entry){
+
+
+if(entry.isIntersecting){
+
+
+entry.target.style.opacity="1";
+
+
+entry.target.style.transform="translateY(0)";
+
+
+}
+
+
+});
 
 
 });
 
 
 
+
 document.querySelectorAll("section").forEach(function(sec){
 
 
-    sec.style.opacity = "0";
+sec.style.opacity="0";
 
 
-    sec.style.transform = "translateY(50px)";
+sec.style.transform="translateY(40px)";
 
 
-    sec.style.transition = "1s";
+sec.style.transition="1s";
 
 
-    observer.observe(sec);
+observer.observe(sec);
+
 
 
 });
