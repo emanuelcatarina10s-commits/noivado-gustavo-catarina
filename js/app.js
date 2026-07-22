@@ -4,11 +4,13 @@
 
 const dataEvento = new Date("August 1, 2026 17:00:00").getTime();
 
+
 function atualizarContador(){
 
     const agora = new Date().getTime();
 
     const distancia = dataEvento - agora;
+
 
     if(distancia < 0){
 
@@ -19,13 +21,24 @@ function atualizarContador(){
 
     }
 
+
     const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
 
-    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const horas = Math.floor(
+        (distancia % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
 
-    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    const minutos = Math.floor(
+        (distancia % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
 
-    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+    const segundos = Math.floor(
+        (distancia % (1000 * 60)) /
+        1000
+    );
+
 
     document.getElementById("contador").innerHTML =
 
@@ -36,9 +49,11 @@ function atualizarContador(){
 
 }
 
+
 setInterval(atualizarContador,1000);
 
 atualizarContador();
+
 
 
 
@@ -48,15 +63,21 @@ atualizarContador();
 
 const galeria = document.getElementById("galeria");
 
+
 for(let i = 1; i <= 57; i++){
+
 
     const img = document.createElement("img");
 
-    img.src = "Emanuel/" + i + ".jpeg";
+
+    img.src = "Emanuel/" + i + ".jpg";
+
 
     img.alt = "Foto " + i;
 
+
     img.loading = "lazy";
+
 
     img.onclick = function(){
 
@@ -64,9 +85,12 @@ for(let i = 1; i <= 57; i++){
 
     };
 
+
     galeria.appendChild(img);
 
+
 }
+
 
 
 
@@ -76,7 +100,9 @@ for(let i = 1; i <= 57; i++){
 
 function abrirImagem(src){
 
+
     const fundo = document.createElement("div");
+
 
     fundo.style.position = "fixed";
     fundo.style.left = "0";
@@ -90,18 +116,25 @@ function abrirImagem(src){
     fundo.style.zIndex = "99999";
     fundo.style.cursor = "pointer";
 
+
     const imagem = document.createElement("img");
 
+
     imagem.src = src;
+
 
     imagem.style.maxWidth = "92%";
     imagem.style.maxHeight = "92%";
     imagem.style.borderRadius = "12px";
     imagem.style.boxShadow = "0 0 40px rgba(255,255,255,.25)";
 
+
     fundo.appendChild(imagem);
 
+
     document.body.appendChild(fundo);
+
+
 
     fundo.onclick = function(){
 
@@ -109,7 +142,9 @@ function abrirImagem(src){
 
     };
 
+
 }
+
 
 
 
@@ -119,28 +154,42 @@ function abrirImagem(src){
 
 const observer = new IntersectionObserver(function(entries){
 
+
     entries.forEach(function(entry){
+
 
         if(entry.isIntersecting){
 
+
             entry.target.style.opacity = "1";
+
 
             entry.target.style.transform = "translateY(0px)";
 
+
         }
+
 
     });
 
+
 });
+
+
 
 document.querySelectorAll("section").forEach(function(sec){
 
+
     sec.style.opacity = "0";
+
 
     sec.style.transform = "translateY(50px)";
 
+
     sec.style.transition = "1s";
 
+
     observer.observe(sec);
+
 
 });
