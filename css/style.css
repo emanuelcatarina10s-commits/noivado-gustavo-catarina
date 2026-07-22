@@ -1,160 +1,228 @@
 *{
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-
-margin:0;
-
-font-family:'Georgia',serif;
-
-background:#fff8f5;
-
-color:#4b2e2e;
-
-text-align:center;
-
+    font-family:'Poppins',sans-serif;
+    background:#faf7f3;
+    color:#444;
 }
 
-
+/* ================= HERO ================= */
 
 .hero{
-
-height:100vh;
-
-background-image:url("../assets/fotos/foto1.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
+    position:relative;
+    width:100%;
+    height:100vh;
+    background:url("../Emanuel/foto-casal.png") center center;
+    background-size:cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
-
-
 
 .overlay{
-
-background:rgba(0,0,0,0.45);
-
-padding:40px;
-
-color:white;
-
-border-radius:20px;
-
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
 }
 
-
-
-h1{
-
-font-size:50px;
-
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    max-width:800px;
+    padding:20px;
 }
 
-
-
-button,.botao{
-
-background:#c59d5f;
-
-color:white;
-
-padding:15px 30px;
-
-border:none;
-
-border-radius:30px;
-
-font-size:18px;
-
-cursor:pointer;
-
-text-decoration:none;
-
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:72px;
+    font-weight:700;
+    margin-bottom:20px;
 }
 
+.hero span{
+    color:#d4af37;
+}
 
+.frase{
+    font-size:22px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.data{
+    font-size:28px;
+    margin-bottom:40px;
+    color:#f8d97a;
+}
+
+.btn{
+    display:inline-block;
+    background:#d4af37;
+    color:white;
+    padding:18px 40px;
+    border-radius:40px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#b88b1f;
+}
+
+/* ================= SECÇÕES ================= */
 
 section{
-
-padding:60px 20px;
-
+    padding:90px 10%;
 }
-
-
 
 h2{
-
-font-size:35px;
-
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    color:#9d6c24;
+    margin-bottom:35px;
+    text-align:center;
 }
 
-
-
-.galeria{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-flex-wrap:wrap;
-
+.historia p{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:2;
+    font-size:20px;
 }
 
+/* ================= FOTO ================= */
 
-
-.galeria img{
-
-width:300px;
-
-height:300px;
-
-object-fit:cover;
-
-border-radius:20px;
-
-box-shadow:0 5px 20px #aaa;
-
+.foto-principal{
+    text-align:center;
 }
 
-
-
-audio{
-
-width:80%;
-
+.foto-principal img{
+    width:90%;
+    max-width:950px;
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.20);
 }
 
+/* ================= GALERIA ================= */
 
+#galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+#galeria img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.4s;
+    cursor:pointer;
+}
+
+#galeria img:hover{
+    transform:scale(1.04);
+}
+
+/* ================= CONTADOR ================= */
+
+.contador{
+    background:white;
+    text-align:center;
+}
 
 #contador{
-
-font-size:35px;
-
-font-weight:bold;
-
-color:#b07b35;
-
+    font-size:55px;
+    font-weight:bold;
+    color:#d4af37;
 }
 
+/* ================= MÚSICA ================= */
 
+.musica{
+    text-align:center;
+}
+
+audio{
+    width:100%;
+    max-width:700px;
+}
+
+/* ================= PEDIDO ================= */
+
+.pedido{
+    text-align:center;
+}
+
+.pedido img{
+    width:90%;
+    max-width:950px;
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.20);
+}
+
+.pedido .texto{
+    margin-top:40px;
+}
+
+.pedido h2{
+    color:#b78628;
+}
+
+/* ================= LOCAL ================= */
+
+.local{
+    text-align:center;
+    background:#fff;
+}
+
+.local p{
+    font-size:22px;
+    line-height:2;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
+    background:#2e2e2e;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
 
-background:#4b2e2e;
+/* ================= RESPONSIVO ================= */
 
-color:white;
+@media(max-width:768px){
 
-padding:30px;
+.hero h1{
+    font-size:46px;
+}
+
+.frase{
+    font-size:18px;
+}
+
+.data{
+    font-size:22px;
+}
+
+h2{
+    font-size:36px;
+}
+
+#contador{
+    font-size:36px;
+}
 
 }
